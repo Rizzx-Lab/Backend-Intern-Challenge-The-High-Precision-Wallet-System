@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "Mini Wallet API",
+    "description": "API untuk deposit, transfer, dan cek balance dengan anti-race condition",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Deposit",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"userId\": 1,\n    \"amount\": \"10000.0000\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/wallet/deposit",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["wallet", "deposit"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"fromUserId\": 1,\n    \"toUserId\": 2,\n    \"amount\": \"5000.0000\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/wallet/transfer",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["wallet", "transfer"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Get Balance",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/wallet/balance/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["wallet", "balance", "1"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
